@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2}
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h3>用户管理 </h3>
+
+
+<table>
+
+    <tr>
+        <th>ID</th>
+        <th>账号</th>
+        <th>密码</th>
+        <th>操作</th>
+    </tr>
+
+    <tr th:each="user:${userList}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.password}"></td>
+        <td>
+            <a th:href="@{/toaddUser(spid=${user.id})}">添加</a>
+            <a th:href="@{/toEditUser(id=${user.id})}">修改</a>
+            <a th:href="@{/toDeleteUser(id=${user.id})}">删除</a>
+        </td>
+    </tr>
+
+
+
+</table>
+
+
+</body>
+</html>

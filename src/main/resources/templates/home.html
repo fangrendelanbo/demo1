@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>这是主页，欢迎   </h3>
+<p th:text="${session.userName}"></p>
+
+<a href="/toYzList">用户管理</a>
+<a href="/toOrdersList">订单查看</a>
+<a href="/toSpList">商品查看</a>
+</body>
+</html>

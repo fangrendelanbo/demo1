@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h3>订单查看 </h3>
+
+
+<table>
+
+  <tr>
+    <th>ID</th>
+    <th>产品名称</th>
+    <th>购买时间</th>
+    <th>产品编号</th>
+    <th>操作</th>
+  </tr>
+
+  <tr th:each="orders:${ordersList}">
+    <td th:text="${orders.spid}"></td>
+    <td th:text="${orders.spname}"></td>
+    <td th:text="${orders.buytime}"></td>
+    <td th:text="${orders.number}"></td>
+    <td>
+      <a th:href="@{/toaddOrders(spid=${orders.spid})}">添加</a>
+      <a th:href="@{/toEditOrders(spid=${orders.spid})}">修改</a>
+      <a th:href="@{/toDeleteOrders(spid=${orders.spid})}">删除</a>
+    </td>
+  </tr>
+
+
+
+</table>
+
+
+</body>
+</html>
